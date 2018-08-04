@@ -1,4 +1,9 @@
-<div *ngIf="!isUserLogin">
+<!-- <app-my-dash></app-my-dash> -->
+<!-- <app-my-nav></app-my-nav> -->
+<!-- <app-navigation></app-navigation> -->
+<router-outlet></router-outlet>
+
+<!-- <div *ngIf="!isUserLogin">
   <h2>Login in Chat</h2>
   <input [(ngModel)]="userName" />
   <button (click)="login()">Login</button>
@@ -18,7 +23,7 @@
   <h2>Messages</h2>
   <div *ngFor='let message of chatService.list'> {{message.author}}: {{message.message}} </div>
 
-</div>
+</div> -->
 
 
 

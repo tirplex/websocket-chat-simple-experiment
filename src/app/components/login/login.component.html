@@ -1,0 +1,17 @@
+<mat-card>
+  <h2>Login in Chat</h2>
+
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter your nick" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    
+    
+  </form>
+  <button mat-flat-button (click)="login()">Click me!</button>
+
+  
+  <!-- <input [(ngModel)]="userName" />
+  <button (click)="login()">Login</button> -->
+</mat-card>

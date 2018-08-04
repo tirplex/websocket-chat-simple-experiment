@@ -1,0 +1,43 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+/* prevent cards overflow */
+.top-menu {
+  z-index: 10;
+}
+
+
+.example-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4em;
+}
+
+
+@media (min-width: 641px) {
+  .example-footer {
+   padding-left: 12em; 
+  }
+}
+
+
+.user-input-form-field {
+  width: 100%;
+}
+
+
+app-chatlist {
+  margin-bottom: 3em; 
+}
