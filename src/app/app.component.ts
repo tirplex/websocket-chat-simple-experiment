@@ -26,7 +26,7 @@ export class AppComponent implements OnDestroy {
 		chatService.messages.subscribe(msg => {
 			console.log("Response from websocket: ", msg);
 
-			if(msg.type == "login"){
+			if(msg['type'] == "login"){
 				let message = {
 					type: 'system',
 					users: this.chatService.connectedUsers,

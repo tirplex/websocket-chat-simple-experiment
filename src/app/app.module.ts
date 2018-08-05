@@ -7,8 +7,6 @@ import { AppRoutingModule } from './modules/app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { 
@@ -64,8 +62,7 @@ import { Aa123Component } from './components/test/aa123/aa123.component';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserModule, 
-    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
