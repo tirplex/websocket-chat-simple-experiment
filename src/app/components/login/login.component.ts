@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ChatService } from '../../services/chat.service';
 })
 export class LoginComponent implements OnInit {
 
-  private user:User;
+  private user: User;
 
   constructor(
     private router: Router,
@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
     this.user = userService.getUser();
   }
 
-  login(){
-		if (this.user.name) {
+  login() {
+    if (this.user.name) {
       //login
       this.user.isLogin = true;
       this.userService.setUser(this.user);
@@ -44,13 +44,12 @@ export class LoginComponent implements OnInit {
         message: this.user.name + ' join Chat!'
       }
       console.log('new message from client to websocket: ', message);
-      // this.chatService.add(message);
       this.chatService.messages.next(message);
-      
-		} else {
-			console.log('User need correct name');
-		}
-	}
+
+    } else {
+      console.log('User need correct name');
+    }
+  }
 
   ngOnInit() {
   }

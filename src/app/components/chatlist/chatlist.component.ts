@@ -16,16 +16,14 @@ export class ChatlistComponent implements OnInit, AfterContentInit {
   @ViewChild('chatlist') private myScrollContainer: ElementRef;
 
   private userText: string = '';
-  private user:User;
-
-  // myList = document.getElementById("myList");
+  private user: User;
 
   constructor(
     private chatService: ChatService,
     private userService: UserService,
     private router: Router,
-  ){
-      this.user = userService.getUser();
+  ) {
+    this.user = userService.getUser();
   }
 
   ngOnInit() {
@@ -39,15 +37,14 @@ export class ChatlistComponent implements OnInit, AfterContentInit {
 
   scrollToBottom(): void {
     try {
-        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-        this.myScrollContainer.nativeElement.scrollTop = 9999999;
-        // console.log(this.myScrollContainer.nativeElement, this.myScrollContainer.nativeElement.scrollTop);
-        
-    } catch(err) { }                 
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      this.myScrollContainer.nativeElement.scrollTop = 9999999;
+
+    } catch (err) { }
   }
 
 
-  goPrivate(message): void{
+  goPrivate(message): void {
     this.router.navigate([`/chat/private/${message.id}`])
   }
 

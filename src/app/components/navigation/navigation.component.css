@@ -12,10 +12,10 @@
 }
 
 /* prevent cards overflow */
+
 .top-menu {
   z-index: 10;
 }
-
 
 .example-footer {
   position: fixed;
@@ -25,19 +25,16 @@
   height: 4em;
 }
 
-
 @media (min-width: 641px) {
   .example-footer {
-   padding-left: 12em; 
+    padding-left: 12em;
   }
 }
-
 
 .user-input-form-field {
   width: 100%;
 }
 
-
 app-chatlist {
-  margin-bottom: 3em; 
+  margin-bottom: 3em;
 }

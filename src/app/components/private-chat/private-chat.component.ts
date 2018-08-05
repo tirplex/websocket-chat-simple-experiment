@@ -15,8 +15,6 @@ export class PrivateChatComponent implements OnInit {
   private user:User;
   private reciverId: number;
 
-  // myList = document.getElementById("myList");
-
   constructor(
     private chatService: ChatService,
     private userService: UserService,
@@ -28,24 +26,4 @@ export class PrivateChatComponent implements OnInit {
   ngOnInit() {
     this.reciverId = +this.route.snapshot.paramMap.get('id');
   }
-
- /*  sendMsg(): void {
-    if (this.userText) {
-      let message = {
-        id: this.user.id,
-        type: 'private',
-        to: this.reciverId, 
-        author: this.user.name,
-        message: this.userText
-      }
-      // console.log('new message from client to websocket: ', message);
-      this.chatService.add(message);
-      this.chatService.messages.next(message);
-      
-      this.userText = '';
-      // this.message.message = '';
-
-    }
-  }
- */
 }

@@ -14,16 +14,17 @@ export class UserService {
     isLogin: false,
   };
 
-  public getUser():User{
+  public getUser(): User {
     return this.user;
   }
 
-  public setUser(user: User):void{
+  public setUser(user: User): void {
     this.user = user;
   }
 
-  public checkAuth():void {
-    if(!this.user.isLogin){
+  // redirect to login page if user are not Auth
+  public checkAuth(): void {
+    if (!this.user.isLogin) {
       this.router.navigate(['/login']);
     }
   }

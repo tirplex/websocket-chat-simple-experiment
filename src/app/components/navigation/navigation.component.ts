@@ -35,29 +35,18 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
 
   ) {
     this.user = userService.getUser();
-    // chatService.messages.subscribe(msg => {
-    //   console.log("Response from websocket: ", msg);
-    // });
   }
 
   ngOnInit(){
     this.userService.checkAuth();
-    // this.reciverId = +this.route.snapshot.paramMap.get('id');
-    // console.log('asdasdasd===============>> ',this.reciverId);
-    
   }
 
   ngAfterContentInit() {
-    // console.log('asdasdasd===============>> ',this.reciverId);
-
   }
 
   ngOnChanges(){
     this.userService.checkAuth();
-    // console.log('asdasdasd===============>> ',this.reciverId);
-
   }
-
 
   sendMessage(): void {
     
@@ -80,8 +69,6 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
       this.chatService.add(message);
       this.chatService.messages.next(message);
       this.userText = '';
-      // this.message.message = '';
-
     }
   }
 

@@ -14,19 +14,19 @@ import { User } from './models/user';
 
 export class AppComponent implements OnDestroy {
 
-  private user:User;
+	private user: User;
 
 
 	constructor(
 		private chatService: ChatService,
 		private userService: UserService
 	) {
-    this.user = userService.getUser();
+		this.user = userService.getUser();
 
 		chatService.messages.subscribe(msg => {
 			console.log("Response from websocket: ", msg);
 
-			if(msg['type'] == "login"){
+			if (msg['type'] == "login") {
 				let message = {
 					type: 'system',
 					users: this.chatService.connectedUsers,
@@ -36,7 +36,8 @@ export class AppComponent implements OnDestroy {
 		});
 	}
 
-	ngOnDestroy(){
+	// try to handle event if user disconnect by closing window 
+	ngOnDestroy() {
 		let message = {
 			type: 'logout',
 			user_id: this.user.id

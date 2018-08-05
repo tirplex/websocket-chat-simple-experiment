@@ -1,14 +1,10 @@
 <div class="chatlist-container" #chatlist>
+  <mat-card *ngIf='!chatService.list.length'>
+    <span>Нет сообщений</span>
+  </mat-card>
 
-
-    <!-- <button (click)="scrollToBottom()">scroll</button> -->
-  
-    <mat-card *ngIf='!chatService.list.length'>
-        <span>Нет сообщений</span>
-    </mat-card>
-    
-    <mat-card *ngFor='let message of chatService.list | privateMessages: reciverId'>
-      <div>{{message.author}} ({{message.id}})</div>
-      <div>{{message.message}}</div>
-    </mat-card>
-  </div>
+  <mat-card *ngFor='let message of chatService.list | privateMessages: reciverId'>
+    <div>{{message.author}} ({{message.id}})</div>
+    <div>{{message.message}}</div>
+  </mat-card>
+</div>

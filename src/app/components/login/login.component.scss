@@ -30,14 +30,6 @@ circle {
 		stroke-dasharray: 500px;
 	}
 
-	&:nth-of-type(3) {
-		stroke-dasharray: 450px;
-	}
-
-	&:nth-of-type(4) {
-		stroke-dasharray: 300px;
-	}
-
 	@for $i from 1 through 4 {
 		&:nth-of-type(#{$i}) {
 			animation-delay: -#{$i * .25}s;
