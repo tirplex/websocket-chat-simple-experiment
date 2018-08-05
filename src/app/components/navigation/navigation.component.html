@@ -8,8 +8,15 @@
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary" >Menu</mat-toolbar>
     <mat-nav-list>
+        <a 
+        mat-list-item
+        routerLink="/chat"
+        (click)="drawer.toggle()"
+      >
+        All users
+      </a>
       <a 
-        mat-list-item href="#"
+        mat-list-item
         *ngFor="let user of chatService.connectedUsers"
         routerLink="/chat/private/{{user.id}}"
         (click)="drawer.toggle()"

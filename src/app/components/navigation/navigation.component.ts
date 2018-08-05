@@ -60,13 +60,11 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
 
 
   sendMessage(): void {
-
-    let reciverId = +this.route.firstChild.snapshot.params.id;
-    console.log(this.route);
     
+    // check what type message we send
+    let reciverId = +this.route.firstChild.snapshot.params.id;
     let type = 'broadcast';
     if (this.reciverId != NaN) type = 'private'; 
-    console.log('asdasdasd===============>> ', reciverId);
     
 
     if (this.userText) {
