@@ -7,8 +7,8 @@ import { Message } from '../models/message';
 export class PrivateMessagesPipe implements PipeTransform {
 
   transform(value: Message[], reciverId: number): Message[] {
-    let messages = value;
-    return messages.filter(m => m.type === 'private' && m.to === reciverId)
+    const messages = value;
+    return messages.filter(m => m.type === 'private' && m.to === reciverId);
   }
 
 }

@@ -11,15 +11,15 @@ import { User } from '../../models/user';
 })
 export class PrivateChatComponent implements OnInit {
 
-  private userText: string = '';
-  private user:User;
+  private userText = '';
+  private user: User;
   private reciverId: number;
 
   constructor(
     private chatService: ChatService,
     private userService: UserService,
     private route: ActivatedRoute,
-  ){
+  ) {
       this.user = userService.getUser();
   }
 

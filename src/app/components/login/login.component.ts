@@ -33,16 +33,16 @@ export class LoginComponent implements OnInit {
         id: this.user.id,
         name: this.user.name,
         isLogin: true,
-      })
+      });
 
-      let message = {
+      const message = {
         id: this.user.id,
         type: 'login',
         to: 0,
         date: new Date(),
         author: this.user.name,
         message: this.user.name + ' join Chat!'
-      }
+      };
       console.log('new message from client to websocket: ', message);
       this.chatService.messages.next(message);
 

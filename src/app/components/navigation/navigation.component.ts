@@ -17,8 +17,8 @@ import { UserService } from '../../services/user.service';
 })
 export class NavigationComponent implements OnInit, OnChanges, AfterContentInit {
 
-  private user:User;
-  private userText: string = '';
+  private user: User;
+  private userText = '';
   private reciverId: number;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -37,34 +37,34 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
     this.user = userService.getUser();
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.userService.checkAuth();
   }
 
   ngAfterContentInit() {
   }
 
-  ngOnChanges(){
+  ngOnChanges() {
     this.userService.checkAuth();
   }
 
   sendMessage(): void {
-    
+
     // check what type message we send
-    let reciverId = +this.route.firstChild.snapshot.params.id;
+    const reciverId = +this.route.firstChild.snapshot.params.id;
     let type = 'broadcast';
-    if (this.reciverId != NaN) type = 'private'; 
-    
+    if (this.reciverId != NaN) { type = 'private'; }
+
 
     if (this.userText) {
-      let message = {
+      const message = {
         id: this.user.id,
         type: type,
         to: reciverId,
         date: new Date(),
         author: this.user.name,
         message: this.userText
-      }
+      };
       console.log('NAVIGATION new message from client to websocket: ', message);
       this.chatService.add(message);
       this.chatService.messages.next(message);
@@ -72,6 +72,6 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
     }
   }
 
-  
+
 
 }

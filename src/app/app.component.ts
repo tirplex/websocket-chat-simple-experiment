@@ -24,24 +24,24 @@ export class AppComponent implements OnDestroy {
 		this.user = userService.getUser();
 
 		chatService.messages.subscribe(msg => {
-			console.log("Response from websocket: ", msg);
+			console.log('Response from websocket: ', msg);
 
-			if (msg['type'] == "login") {
-				let message = {
+			if (msg['type'] == 'login') {
+				const message = {
 					type: 'system',
 					users: this.chatService.connectedUsers,
-				}
+				};
 				this.chatService.messages.next(message);
 			}
 		});
 	}
 
-	// try to handle event if user disconnect by closing window 
+	// try to handle event if user disconnect by closing window
 	ngOnDestroy() {
-		let message = {
+		const message = {
 			type: 'logout',
 			user_id: this.user.id
-		}
+		};
 		this.chatService.messages.next(message);
 		this.chatService.messages.unsubscribe();
 	}

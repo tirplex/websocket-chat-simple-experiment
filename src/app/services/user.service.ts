@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class UserService {
 
   private user: User = {
-    id: Date.now(), //simle uniq id realization
+    id: Date.now(), //simple uniq id realization
     name: '',
     isLogin: false,
   };
@@ -28,7 +28,6 @@ export class UserService {
       this.router.navigate(['/login']);
     }
   }
-
 
   constructor(
     private router: Router,

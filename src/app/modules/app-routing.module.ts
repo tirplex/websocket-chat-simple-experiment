@@ -6,20 +6,20 @@ import { NavigationComponent }   from '../components/navigation/navigation.compo
 import { ChatlistComponent } from '../components/chatlist/chatlist.component';
 import { PrivateChatComponent }   from '../components/private-chat/private-chat.component';
 
- 
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { 
-    path: 'chat', 
+  {
+    path: 'chat',
     component: NavigationComponent,
     children: [
       { path: '', component: ChatlistComponent },
       { path: 'private/:id', component: PrivateChatComponent },
-    ] 
+    ]
   },
 ];
- 
+
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]

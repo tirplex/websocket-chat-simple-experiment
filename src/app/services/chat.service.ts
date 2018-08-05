@@ -24,7 +24,7 @@ export class ChatService {
       .connect(CHAT_URL)
       .map((response: MessageEvent): Object => {
 
-        let data = JSON.parse(response.data);
+        const data = JSON.parse(response.data);
 
         if (data.type === 'system' && data.users) {
           data.users.forEach(user => {
@@ -39,11 +39,11 @@ export class ChatService {
             id: data.id,
             name: data.author,
             isLogin: true,
-          })
+          });
         }
 
         if (data.type === 'logout') {
-          let index = this.connectedUsers.findIndex(u => u.id === data.user_id)
+          const index = this.connectedUsers.findIndex(u => u.id === data.user_id);
           if (index != -1) {
             this.connectedUsers.splice(index, 1);
           }
@@ -69,4 +69,4 @@ export class ChatService {
     this.list = [];
   }
 
-} 
+}

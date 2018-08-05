@@ -15,7 +15,7 @@ export class ChatlistComponent implements OnInit, AfterContentInit {
 
   @ViewChild('chatlist') private myScrollContainer: ElementRef;
 
-  private userText: string = '';
+  private userText = '';
   private user: User;
 
   constructor(
@@ -45,7 +45,7 @@ export class ChatlistComponent implements OnInit, AfterContentInit {
 
 
   goPrivate(message): void {
-    this.router.navigate([`/chat/private/${message.id}`])
+    this.router.navigate([`/chat/private/${message.id}`]);
   }
 
 }
