@@ -14,19 +14,26 @@ const CHAT_URL = 'wss://do.brainfaq.ru/chat?token=g6vvucKrCUZ3PTvL0F8R6cjdFi0qGy
 
 export class ChatService {
 	
-  public list: Message[] = [];
-  public connectedUsers: User[] = []; 
+  public list: Object[] = [];
+  public connectedUsers: User[] = [];
+  public stars: number = 0; 
 
-  public messages: Subject<Message>;
+  public messages: Subject<Object>;
   
 	constructor(wsService: WebsocketService) {
-		this.messages = <Subject<Message>>wsService
+		this.messages = <Subject<Object>>wsService
 			.connect(CHAT_URL)
-			.map((response: MessageEvent): Message => {
+			.map((response: MessageEvent): Object => {
         let data = JSON.parse(response.data);
 
-        this.list.push(data); 
-
+        if (data.type === 'system' && data.users){
+          data.users.forEach(user => {
+            if (this.connectedUsers.find(u => u.id === user.id ) == undefined ){
+              this.connectedUsers.push(user);
+            }       
+          });
+        }
+        
         if(data.type === 'login'){
           this.connectedUsers.push({
             id: data.id,
@@ -34,11 +41,30 @@ export class ChatService {
             isLogin: true,
           })
         }
+
+        if(data.type === 'logout'){
+          let index = this.connectedUsers.findIndex(u => u.id === data.user_id)
+          if (index != -1){
+            this.connectedUsers.splice(index, 1);
+          }       
+        }
+
+        if(data.type === 'star'){
+          this.stars += 1;     
+        }
+
+        if(data.date){
+          data.date = new Date(data.date);
+        }
+        if(data.type !== 'system'){
+          this.list.push(data); 
+        }
+
         return data;
 			});
 	}
  
-  add(message: Message) {
+  add(message: Object) {
 		this.list.push(message);
 		console.log('list', this.list);
   }

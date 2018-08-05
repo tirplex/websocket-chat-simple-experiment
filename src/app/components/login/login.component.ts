@@ -7,7 +7,7 @@ import { ChatService } from '../../services/chat.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
@@ -28,10 +28,18 @@ export class LoginComponent implements OnInit {
       this.userService.setUser(this.user);
       this.router.navigate(['/chat']);
 
+
+      this.chatService.connectedUsers.push({
+        id: this.user.id,
+        name: this.user.name,
+        isLogin: true,
+      })
+
       let message = {
         id: this.user.id,
         type: 'login',
         to: 0,
+        date: new Date(),
         author: this.user.name,
         message: this.user.name + ' join Chat!'
       }

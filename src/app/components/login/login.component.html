@@ -1,17 +1,33 @@
-<mat-card>
-  <h2>Login in Chat</h2>
+<div layout-fill layout="column" layout-align="center none">
+  <div layout="row" layout-align="center none">
+
+    <mat-card>
+      <h2>Login in Chat</h2>
 
 
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter your nick" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
-    
-    
-  </form>
-  <button mat-flat-button (click)="login()">Click me!</button>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter your nick" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
 
-  
-  <!-- <input [(ngModel)]="userName" />
+
+      </form>
+      <button mat-flat-button (click)="login()">Click me!</button>
+
+
+      <!-- <input [(ngModel)]="userName" />
   <button (click)="login()">Login</button> -->
-</mat-card>
+    </mat-card>
+
+  </div>
+</div>
+
+
+<div class="container">
+
+  <svg class="loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+    <circle cx="170" cy="170" r="160" stroke="#3f51b5" />
+    <circle cx="170" cy="170" r="110" stroke="#3f51b5" />
+  </svg>
+
+</div>

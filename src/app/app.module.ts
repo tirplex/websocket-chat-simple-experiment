@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+// import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { 
   MatGridListModule, 
   MatCardModule, 
@@ -27,6 +31,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { LoginComponent } from './components/login/login.component';
 import { PrivateChatComponent } from './components/private-chat/private-chat.component';
 import { PrivateMessagesPipe } from './pipes/private-messages.pipe';
+import { Aa123Component } from './components/test/aa123/aa123.component';
 
 
 @NgModule({
@@ -38,7 +43,8 @@ import { PrivateMessagesPipe } from './pipes/private-messages.pipe';
     NavigationComponent,
     LoginComponent,
     PrivateChatComponent,
-    PrivateMessagesPipe
+    PrivateMessagesPipe,
+    Aa123Component
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,7 @@ import { PrivateMessagesPipe } from './pipes/private-messages.pipe';
     AppRoutingModule,
 
     BrowserAnimationsModule,
-    NoopAnimationsModule,
+    // NoopAnimationsModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
@@ -57,7 +63,9 @@ import { PrivateMessagesPipe } from './pipes/private-messages.pipe';
     MatSidenavModule,
     MatListModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    BrowserModule, 
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

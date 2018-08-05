@@ -10,17 +10,17 @@
     <mat-nav-list>
         <a 
         mat-list-item
-        routerLink="/chat"
-        (click)="drawer.toggle()"
-      >
+        >
+        <!-- routerLink="/chat" -->
+        <!-- (click)="drawer.toggle()" -->
         All users
       </a>
       <a 
         mat-list-item
         *ngFor="let user of chatService.connectedUsers"
-        routerLink="/chat/private/{{user.id}}"
-        (click)="drawer.toggle()"
-      >
+        >
+        <!-- routerLink="/chat/private/{{user.id}}"
+        (click)="drawer.toggle()" -->
         {{user.name}}
       </a>
     </mat-nav-list>
@@ -53,6 +53,9 @@
                 <mat-icon>send</mat-icon>
               </button>
             </mat-form-field>
+            <button mat-mini-fab>
+                <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+              </button>
       </mat-toolbar>
   </mat-sidenav-content>
 </mat-sidenav-container>

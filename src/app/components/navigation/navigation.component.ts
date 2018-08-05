@@ -72,6 +72,7 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
         id: this.user.id,
         type: type,
         to: reciverId,
+        date: new Date(),
         author: this.user.name,
         message: this.userText
       }

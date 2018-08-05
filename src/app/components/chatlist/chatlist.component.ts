@@ -3,6 +3,7 @@ import { Component, OnInit, AfterContentInit, ElementRef, ViewChild } from '@ang
 import { ChatService } from '../../services/chat.service';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class ChatlistComponent implements OnInit, AfterContentInit {
   constructor(
     private chatService: ChatService,
     private userService: UserService,
+    private router: Router,
   ){
       this.user = userService.getUser();
   }
@@ -42,6 +44,11 @@ export class ChatlistComponent implements OnInit, AfterContentInit {
         // console.log(this.myScrollContainer.nativeElement, this.myScrollContainer.nativeElement.scrollTop);
         
     } catch(err) { }                 
+  }
+
+
+  goPrivate(message): void{
+    this.router.navigate([`/chat/private/${message.id}`])
   }
 
 }

@@ -8,7 +8,7 @@
   </mat-card>
   
   <mat-card *ngFor='let message of chatService.list'>
-    <div>{{message.author}} ({{message.id}})</div>
+    <div><strong>{{message.author}} ({{message.date | date:'mediumTime'}})</strong></div>
     <div>{{message.message}}</div>
   </mat-card>
 </div>
