@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         author: this.user.name,
         message: this.user.name + ' join Chat!'
       }
-      // console.log('new message from client to websocket: ', message);
+      console.log('new message from client to websocket: ', message);
       // this.chatService.add(message);
       this.chatService.messages.next(message);
       

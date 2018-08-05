@@ -24,24 +24,17 @@ export class ChatService {
 			.connect(CHAT_URL)
 			.map((response: MessageEvent): Message => {
         let data = JSON.parse(response.data);
-        
+
         this.list.push(data); 
 
-        if(data.type = 'login'){
+        if(data.type === 'login'){
           this.connectedUsers.push({
             id: data.id,
             name: data.author,
             isLogin: true,
           })
         }
-        
-				return {
-          id: data.id,
-          type: data.type,
-          to: data.to,
-          author: data.author,
-					message: data.message
-				}
+        return data;
 			});
 	}
  

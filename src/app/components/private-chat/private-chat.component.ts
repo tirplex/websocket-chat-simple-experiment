@@ -29,7 +29,7 @@ export class PrivateChatComponent implements OnInit {
     this.reciverId = +this.route.snapshot.paramMap.get('id');
   }
 
-  sendMsg(): void {
+ /*  sendMsg(): void {
     if (this.userText) {
       let message = {
         id: this.user.id,
@@ -47,5 +47,5 @@ export class PrivateChatComponent implements OnInit {
 
     }
   }
-
+ */
 }

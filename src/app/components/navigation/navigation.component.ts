@@ -35,9 +35,9 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
 
   ) {
     this.user = userService.getUser();
-    chatService.messages.subscribe(msg => {
-      console.log("Response from websocket: ", msg);
-    });
+    // chatService.messages.subscribe(msg => {
+    //   console.log("Response from websocket: ", msg);
+    // });
   }
 
   ngOnInit(){
@@ -61,9 +61,11 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
 
   sendMessage(): void {
 
-    let reciverId = +this.route.snapshot.paramMap.get('id');
+    let reciverId = +this.route.firstChild.snapshot.params.id;
+    console.log(this.route);
+    
     let type = 'broadcast';
-    if (this.reciverId) type = 'private'; 
+    if (this.reciverId != NaN) type = 'private'; 
     console.log('asdasdasd===============>> ', reciverId);
     
 
@@ -75,7 +77,7 @@ export class NavigationComponent implements OnInit, OnChanges, AfterContentInit 
         author: this.user.name,
         message: this.userText
       }
-      console.log('new message from client to websocket: ', message);
+      console.log('NAVIGATION new message from client to websocket: ', message);
       this.chatService.add(message);
       this.chatService.messages.next(message);
       this.userText = '';
